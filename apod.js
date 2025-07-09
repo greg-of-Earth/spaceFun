@@ -31,7 +31,7 @@ const loadAPOD = async () => {
         data = await response.json();
         console.log('apod data:', data);
 
-        localStorage.setItem('apodData', JSON.stringify(retrievedData));
+        localStorage.setItem('apodData', JSON.stringify(data));
         
         // render image and info
         updateAPODDisplay(data);
