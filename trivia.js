@@ -100,6 +100,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
             // listen for chosen answer
             button.addEventListener('click', () => {
                 button.blur();
+                console.log('blur added');
 
                 clearInterval(timerInterval);
 
