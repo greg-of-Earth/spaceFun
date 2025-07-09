@@ -1,0 +1,67 @@
+[
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Venus", "Neptune", "Mars", "Jupiter"],
+        "answer": "Mars"
+    },
+    {
+        "question": "Who was the first human to walk on the Moon?",
+        "options": ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Michael Collins"],
+        "answer": "Neil Armstrong"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["Earth", "Jupiter", "Saturn", "Neptune"],
+        "answer": "Jupiter"
+    },
+    {
+        "question": "Who was the first person in space?",
+        "options": ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Taylor Swift"],
+        "answer": "Yuri Gagarin"
+    },
+    {
+        "question": "A solar eclicpse is when the _ covers the _",
+        "options": ["Moon, Sun", "Sun, Moon", "Earth, Sun", "Jupiter, Sun"],
+        "answer": "Moon, Sun"
+    },
+    {
+        "question": "Which planet has a moon with an atmosphere?",
+        "options": ["Venus", "Neptune", "Saturn", "Jupiter"],
+        "answer": "Saturn"
+    },
+    {
+        "question": "On which planet does it rain diamonds?",
+        "options": ["Venus", "Neptune", "Mars", "Jupiter"],
+        "answer": "Neptune"
+    },
+    {
+        "question": "What is the name of the galaxy that contains our Solar System?",
+        "options": ["Andromeda", "Milky Way", "Triangulum", "Whirlpool"],
+        "answer": "Milky Way"
+    },
+    {
+        "question": "Which planet has the most moons?",
+        "options": ["Jupiter", "Saturn", "Mars", "Uranus"],
+        "answer": "Saturn"
+    },
+    {
+        "question": "What is the hottest planet in our solar system?",
+        "options": ["Mercury", "Venus", "Mars", "Jupiter"],
+        "answer": "Venus"
+    },
+    {
+        "question": "Which spacecraft was the first to leave the solar system?",
+        "options": ["Voyager 1", "Apollo 11", "Pioneer 10", "New Horizons"],
+        "answer": "Voyager 1"
+    },
+    {
+        "question": "What does NASA stand for?",
+        "options": [
+            "National Aeronautics and Space Administration",
+            "North American Space Agency",
+            "National Aerospace Safety Administration",
+            "Navigation and Space Authority"
+        ],
+        "answer": "National Aeronautics and Space Administration"
+    }
+]

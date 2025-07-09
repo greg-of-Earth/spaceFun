@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Solar System</title>
+    <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="styles/gamePage.css"/>
+    <link rel="stylesheet" href="styles/trivia.css"/>
+    <link rel="stylesheet" href="styles/timer.css"/>
+    <link rel="stylesheet" href="styles/apod.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    
+</head>
+<header>
+    <nav id="navbar">
+        <button id="menu-toggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div id="menu-container">
+            <ul id="header-items">
+                <li><a href="#home">Home</a></li>
+                <li>
+                    <a href="#about">About</a>
+                    <ul class="dropdown">
+                        <li><a href="#mercury">Mercury</a></li>
+                        <li><a href="#mercury">Venus</a></li>
+                        <li><a href="#mercury">Earth</a></li>
+                        <li><a href="#mercury">Mars</a></li>
+                        <li><a href="#mercury">Jupiter</a></li>
+                        <li><a href="#mercury">Saturn</a></li>
+                        <li><a href="#mercury">Uranus</a></li>
+                        <li><a href="#mercury">Neptune</a></li>
+                    </ul>
+                </li>
+                <li><a href="#apod">APOD</a></li>
+                <li><a href="#games">Games</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body>
+    
+
+    <div id="page-container">
+        <!-- Home page -->
+        <div id="solarSystem-container">
+            <canvas id="solarSystem"></canvas>
+            <h4 id="home-info">Click a planet to learn more...</h4>
+        </div>
+
+        <!-- About page -->
+        <div id="about-section" class="hidden">
+            <h1 id="about-title">About Solar System</h1>
+            <p id="about-description">Facts about Solar System</p>
+        </div>
+
+        <!-- Astronomy Picture of the Day page -->
+        <div id="apod-section" class="hidden">
+            <div id="loading" class="hidden">
+                <i class="fa-solid fa-gear fa-spin fa-3x"></i>
+            </div>
+
+            
+            <div id="apod-image-container">        
+                <img id="apod-image" alt="Astronomy Picture of the Day">
+                <button id="apod-button" title="Description">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+            </div>
+            <h2 id="apod-image-title"></h2>
+        </div>
+
+        <!-- Game page -->
+        <div id="spaceship-container">
+            <div class="spaceship" id="spaceship">
+                <!-- top -->
+                <div class="console-display" id="statusDisplay" data-content="status">Engines Idle</div>
+                <div class="console-display" id="timerDisplay" data-content="timer">Timer</div>
+                <div class="console-btn inactive" id="exitDisplay" data-content="exit">Shut Down</div>
+
+                <!-- left -->
+                <div class="console-display" id="scoreDisplay" data-content="Score">Score: 0</div>
+
+                <!-- screen -->
+                <div id="screen">
+                    <h2>Welcome, Captain</h2>
+                    <p>Your mission awaits...</p>
+                </div>
+                
+                <!-- right -->
+                <div class="console-display" id="healthBarContainer" >
+                    
+                    <div id="healthBar">Health</div>
+                </div>
+                
+
+                <!-- bottom -->
+                <div class="console-btn" data-content="logs">Logs</div>
+                <div class="console-btn" data-content="missionStart">Mission Start</div>
+                <div class="console-btn inactive" data-content="restart">Restart Mission</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Pop out Modal -->
+    <div id="modal" class="hidden">
+        <div id="modal-content">
+            <span id="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-body"></p>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="main.js"></script>
+<script src="apod.js"></script>
+<script type="module" src="gamePage.js"></script>
+<!-- <script src="trivia.js"></script> -->
+<script src="render.js"></script>
+
+</html>
