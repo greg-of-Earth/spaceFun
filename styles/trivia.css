@@ -45,8 +45,12 @@
     border-radius: 6px;
     border: none;
     min-width: 80px;
+    background-color: #fff;
     transition: background-color 0.3s
     -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
 }
 
 .trivia-option:hover {
