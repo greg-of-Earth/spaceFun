@@ -64,6 +64,15 @@
     animiation: pulseRed 1.5s ease forwards;
 }
 
+.trivia-option:focus {
+    outline: none;
+    background-color: initial;
+}
+
+.trivia-option:active {
+    background-color: initial;
+}
+
 #trivia-section h1,
 #trivia-section p,
 #trivia-score {

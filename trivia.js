@@ -99,8 +99,9 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
 
             // listen for chosen answer
             button.addEventListener('click', () => {
+                button.blur();
+
                 clearInterval(timerInterval);
-                
 
                 const allBtns = quesElement.querySelectorAll('button');
                 allBtns.forEach(btn => btn.disabled = true);
@@ -115,17 +116,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                 } else {
                     button.classList.add('incorrect');
                     health = wrongAnswer(health, question);
-
-                    // const spaceship = document.getElementById('spaceship');
-                    // spaceship.classList.add('shake');
-
-                    // spaceship.addEventListener('animationend', () => {
-                    //     spaceship.classList.remove('shake');
-                    // }, { once: true });
-
-                    // health = Math.max(0, health - 1);
-                    // updateHealth(health);
-                    
+                   
 
                     // show correct answer
                     allBtns.forEach(btn => {
