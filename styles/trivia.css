@@ -46,6 +46,7 @@
     border: none;
     min-width: 80px;
     transition: background-color 0.3s
+    -webkit-tap-highlight-color: transparent;
 }
 
 .trivia-option:hover {
