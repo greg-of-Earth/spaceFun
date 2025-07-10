@@ -57,13 +57,13 @@
 .trivia-option.correct {
     background-color: #4caf50;
     color: white;
-    animiation: pulseGreen 1.5s ease forwards;
+    animation: pulseGreen 1.5s ease forwards;
 }
 
 .trivia-option.incorrect {
     background-color: #f44336;
     color: white;
-    animiation: pulseRed 1.5s ease forwards;
+    animation: pulseRed 1.5s ease forwards;
 }
 
 .trivia-option,
