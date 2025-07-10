@@ -41,7 +41,7 @@ canvas {
     border: 2px solid #ccc;
     border-radius: 18px;
     padding: 8px;
-    z-index: 5;
+    z-index: 15;
 }
 
 .zoomToggle {
