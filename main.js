@@ -8,6 +8,9 @@ document.getElementById('menu-toggle').addEventListener('click', () => {
 const canvas = document.getElementById("solarSystem");
 const context = canvas.getContext('2d');
 
+document.body.style.overflow = 'hidden';
+
+
 // fill the window
 const resizeCanvas = () => {
     
