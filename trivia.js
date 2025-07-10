@@ -45,7 +45,10 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
         if (!gameInProgress) return; // restart protection
         // clear previous
         timerDisplayReset();
-        triviaQuesContainer.innerHTML = '';
+        requestAnimationFrame(() => {
+            triviaQuesContainer.innerHTML = '';
+        })
+        
         clearInterval(timerInterval); // clear timer
 
         let timeLeft = startTime;
@@ -93,11 +96,12 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
 
         // answer options are rendered as buttons
         question.options.forEach(option => {
-            const button = document.createElement('div');
+            const button = document.createElement('button');
             button.textContent = option;
             button.classList.add('trivia-option');
-            button.setAttribute('role', 'button');
-            button.setAttribute('tabindex', '0');
+            button.style.pointerEvents = 'none';
+            // button.setAttribute('role', 'button');
+            // button.setAttribute('tabindex', '0');
 
             // listen for chosen answer
             button.addEventListener('click', () => {
