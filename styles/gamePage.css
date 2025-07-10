@@ -129,7 +129,7 @@
 
     #spaceship-container {
         height: 100dvh;
-        padding-top: 50px;
+        /* padding-top: 50px; */
         box-sizing: border-box;
     }
 
