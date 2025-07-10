@@ -149,7 +149,7 @@ const animate = () => {
 const planetClick = (event) => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top - navbarHeight;
+    const mouseY = isMobile ? event.clientY - rect.top - navbarHeight : event.clientY - rect.top
 
     checkPlanetClick(mouseX, mouseY);
 };
@@ -174,7 +174,7 @@ const checkPlanetClick = (mouseX, mouseY) => {
 canvas.addEventListener('mousemove', (event) => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top - navbarHeight;
+    const mouseY = isMobile ? event.clientY - rect.top - navbarHeight : event.clientY - rect.top;
 
     let hoveringPlanet = false;
 
@@ -194,7 +194,7 @@ canvas.addEventListener('touchend', (e) => {
     const rect = canvas.getBoundingClientRect();
     const touch = e.changedTouches[0];
     const mouseX = touch.clientX - rect.left;
-    const mouseY = touch.clientY - rect.top - navbarHeight;
+    const mouseY = isMobile ? e.clientY - rect.top - navbarHeight : e.clientY - rect.top;
     checkPlanetClick(mouseX, mouseY);
 })
 
