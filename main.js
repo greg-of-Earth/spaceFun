@@ -10,8 +10,15 @@ const context = canvas.getContext('2d');
 
 // fill the window
 const resizeCanvas = () => {
+    
+    const navbar = document.getElementById('navbar');
+    const navbarHeight = navbar ? navbar.offsetHeight : 0;
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - document.getElementById('navbar')?.offsetHeight || 0;
+    canvas.height = window.innerHeight - navbarHeight;
+
+    canvas.style.position = 'absolute';
+    canvas.style.top = `${navbarHeight}px`;
+    canvas.style.left = '0';
 } 
 
 // document.getElementById('apod-button').addEventListener('click', () => {
@@ -98,9 +105,9 @@ const drawPlanets = (sunRadius) => {
         const zoomSizeMultiplier = 1 + (1 - planet.ratio) * (zoomFactor - 1) * 1;
 
         planet.radius = sunRadius * 0.1 * sizeScale * planet.sizeRatio * zoomSizeMultiplier;
-        if (isMobile) {
-            planet.radius = Math.max(planet.radius, 16);
-        }
+        // if (isMobile) {
+        //     planet.radius = Math.max(planet.radius, 16);
+        // }
 
         planet.angle -= planet.speed / Math.pow(zoomFactor, 1.5);
 
