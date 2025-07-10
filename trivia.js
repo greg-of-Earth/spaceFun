@@ -47,7 +47,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
         timerDisplayReset();
         requestAnimationFrame(() => {
             triviaQuesContainer.innerHTML = '';
-        })
+        
         
         clearInterval(timerInterval); // clear timer
 
@@ -149,12 +149,15 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                 
             quesElement.appendChild(button);
         });
+    });
         // display the question 
         triviaQuesContainer.appendChild(quesElement);
         
         
     }
+
     displayQues(questions[0]);
+    
 }
 
 export const updateScore = (score) => {
