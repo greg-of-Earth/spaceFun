@@ -115,9 +115,18 @@
 }
 
 @media (max-width: 768px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrollbars */
+        height: 100%;
+    }
+    
+
     #spaceship-container {
-        height: 100vh;
-        margin-top: 50px;
+        height: 100dvh;
+        padding-top: 0px;
+        box-sizing: border-box;
     }
 
     .spaceship {
@@ -127,7 +136,8 @@
 
         gap: 10px;
         width: 100vw;
-        height: 90vh;
+        height: 90%;
+        max-height: 100%;
         /* padding: 10px; */
         box-sizing: border-box;
     }
