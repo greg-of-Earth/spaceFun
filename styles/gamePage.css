@@ -114,33 +114,74 @@
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-@media (max-width: 768) {
+@media (max-width: 768px) {
     #spaceship-container {
         height: 100vh;
-        margin: 0;
+        margin-top: 50px;
     }
 
     .spaceship {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 1.25fr 10px 1.25fr;
+        grid-template-columns: 1fr 2.25fr 1fr;
+        grid-template-rows: .5fr .45fr 1.5fr .45fr .45fr;
 
         gap: 10px;
         width: 100vw;
-        height: 100vh;
-        padding: 10px;
+        height: 90vh;
+        /* padding: 10px; */
         box-sizing: border-box;
     }
 
     #screen {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
+        grid-column: 1 / -1;
+        grid-row: 3;
         max-height: 100%;
         overflow: auto;
         box-sizing: border-box;
+        padding: 1em;
     }
 
-    /* #healthBar {
+    #timerDisplay {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    #scoreDisplay {
+        grid-column: 2 / 3;
+        grid-row: 1;
+    }
+
+    #startBtn {
+        grid-column: 1 / -1;
+        grid-row: 4;
+    }
+
+    #healthBarContainer {
+        grid-column: 2 / 3;
+        grid-row: 5;
+    }
+
+    #logsBtn {
+        grid-column: 1 / 2;
+        grid-row: 5;
+    }
+
+    #restartBtn {
+        grid-column: 3 / 4;
+        grid-row: 5;
+    }
+
+    #exitBtn {
+        grid-column: 3 / 4;
+        grid-row: 1;
+    }
+
+    /* .console-btn, .console-display {
+        font-size: 0.9rem;
+        padding: 0.75em;
+    }
+
+    #healthBar {
         height: 20px;
     } */
 }
