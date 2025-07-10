@@ -24,7 +24,7 @@ canvas {
     top: 35px;
     left: 50%;
     background-color: rgba(255, 255, 255, 0.4);
-    width: 100%;
+    width: 80%;
     transform: translateX(-50%);
     pointer-events: none;
     z-index: 5;
@@ -57,10 +57,10 @@ canvas {
 }
 
 @media (max-width: 468px) {
-    .zoomControls {
+    /* .zoomControls {
         bottom: 40px;
 
-    }
+    } */
     .zoomToggle {
         top: 55px;
         bottom: 55px;
