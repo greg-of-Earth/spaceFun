@@ -151,6 +151,9 @@ const planetClick = (event) => {
     checkPlanetClick(mouseX, mouseY);
 };
 
+const clickBuffer = 10;
+const clickBufferScaled = clickBuffer * zoomFactor;
+
 // check if planet is clicked on 
 const checkPlanetClick = (mouseX, mouseY) => {
     planets.forEach(planet => {
@@ -158,7 +161,7 @@ const checkPlanetClick = (mouseX, mouseY) => {
         const dy = mouseY - planet.screenY;
         const distance = Math.sqrt(dx * dx + dy * dy);
         // if planet clicked on show the modal
-        if (distance <= planet.radius) {
+        if (distance <= planet.radius + clickBufferScaled) {
             showModal(planet.name, planet.description);
             console.log('clicked me', planet);
         }
@@ -177,7 +180,7 @@ canvas.addEventListener('mousemove', (event) => {
         const dy = mouseY - planet.screenY;
         const distance = Math.sqrt(dx * dx + dy * dy);
         // if planet clicked on show the modal
-        if (distance <= planet.radius) {
+        if (distance <= planet.radius + clickBufferScaled) {
             hoveringPlanet = true;
         }
     });
