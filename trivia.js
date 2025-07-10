@@ -93,9 +93,11 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
 
         // answer options are rendered as buttons
         question.options.forEach(option => {
-            const button = document.createElement('button');
+            const button = document.createElement('div');
             button.textContent = option;
             button.classList.add('trivia-option');
+            button.setAttribute('role', 'button');
+            button.setAttribute('tabindex', '0');
 
             // listen for chosen answer
             button.addEventListener('click', () => {
