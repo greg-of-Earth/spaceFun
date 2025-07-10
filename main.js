@@ -156,8 +156,8 @@ const animate = () => {
 // get planet position when it is clicked on
 const planetClick = (event) => {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
+    const mouseX = event.pageX - rect.left;
+    const mouseY = event.pageY - rect.top;
 
     checkPlanetClick(mouseX, mouseY);
 };
