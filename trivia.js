@@ -186,7 +186,12 @@ export const stopQuiz = () => {
 export const updateHealth = (health) => {
     const healthBar = document.getElementById('healthBar');
     const percentage = (health / 3) * 100;
-    healthBar.style.height = `${percentage}%`;
+    if (window.innerWidth <= 768) {
+        healthBar.style.width = `${percentage}%`;
+    } else {
+        healthBar.style.height = `${percentage}%`;
+    }
+    
 
     if (health === 0) {
         const screen = document.getElementById('screen');

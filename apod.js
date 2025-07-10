@@ -15,7 +15,7 @@ const loadAPOD = async () => {
             updateAPODDisplay(data);
             return data;
         }
-        loader.classList.add('hidden');
+        
     }
    
     try {
