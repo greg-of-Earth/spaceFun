@@ -167,12 +167,30 @@ const clickBuffer = isMobile ? 25 : 10;
 
 // check if planet is clicked on 
 const checkPlanetClick = (mouseX, mouseY) => {
+    const sizeScale = Math.min(canvas.width, canvas.height) / 800;
+    const sunRadius = (Math.max(20, Math.min(canvas.width, canvas.height) * 0.05)) * Math.sqrt(zoomFactor);
+
     planets.forEach(planet => {
-        const dx = mouseX - planet.screenX;
-        const dy = mouseY - planet.screenY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const distance = Math.max(30, zoomFactor * (minGap + Math.pow(planet.ratio, 0.6) * maxGap));
+        const zoomSizeMultiplier = 1 + (1 - planet.ratio) * (zoomFactor - 1);
+        const radius = sunRadius * 0.1 * sizeScale * planet.sizeRatio * zoomSizeMultiplier;
+
+        const angle = planet.angle;
+
+        // Recalculate planet’s screen position at the time of click
+        const x = centerX() + distance * Math.cos(angle);
+        const y = centerY() + distance * 0.95 * Math.sin(angle);
+
+        const dx = mouseX - x;
+        const dy = mouseY - y;
+        const distanceToPlanet = Math.sqrt(dx * dx + dy * dy);
+
+    // planets.forEach(planet => {
+    //     const dx = mouseX - planet.screenX;
+    //     const dy = mouseY - planet.screenY;
+    //     const distance = Math.sqrt(dx * dx + dy * dy);
         // if planet clicked on show the modal
-        if (distance <= planet.radius + clickBuffer) {
+        if (distanceToPlanet <= planet.radius + clickBuffer) {
             showModal(planet.name, planet.description);
             console.log('clicked me', planet);
         }
