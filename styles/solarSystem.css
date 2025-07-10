@@ -6,6 +6,7 @@
     width: 100vw;
     height: calc(100vh - 50px);
     overflow: hidden;
+    padding-top: 50px;
 }
 
 canvas {
@@ -55,13 +56,17 @@ canvas {
 }
 
 @media (max-width: 468px) {
+    .zoomControls {
+        bottom: 40px;
+
+    }
     .zoomToggle {
         top: 55px;
         bottom: 55px;
     }
     
     .zoomToggle i {
-        font-size: 3.5rem;
+        font-size: 1.5rem;
         color: black;
     }
 }

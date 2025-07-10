@@ -148,7 +148,7 @@ const planetClick = (event) => {
     checkPlanetClick(mouseX, mouseY);
 };
 
-const clickBuffer = 10;
+const clickBuffer = isMobile ? 25 : 10;
 const clickBufferScaled = clickBuffer * zoomFactor;
 
 // check if planet is clicked on 
@@ -183,6 +183,14 @@ canvas.addEventListener('mousemove', (event) => {
     });
     canvas.style.cursor = hoveringPlanet ? 'pointer' : 'default';
 });
+
+canvas.addEventListener('touchend', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.changedTouches[0];
+    const mouseX = touch.clientX - rect.left;
+    const mouseY = touch.clientY - rect.top;
+    checkPlanetClick(mouseX, mouseY);
+})
 
 const updateZoomButtons = () => {
     document.getElementById('zoomInToggle').style.opacity = zoomFactor >= maxZoom ? '0.5' : '1';
