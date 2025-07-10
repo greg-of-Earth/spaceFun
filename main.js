@@ -14,10 +14,10 @@ document.body.style.overflow = 'hidden';
 // fill the window
 const resizeCanvas = () => {
     
-    const navbar = document.getElementById('navbar');
-    const navbarHeight = navbar ? navbar.offsetHeight : 0;
+    // const navbar = document.getElementById('navbar');
+    // const navbarHeight = navbar ? navbar.offsetHeight : 0;
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - navbarHeight;
+    canvas.height = window.innerHeight - 50;
 
     // canvas.style.position = 'absolute';
     // canvas.style.top = `${navbarHeight}px`;
