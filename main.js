@@ -11,8 +11,8 @@ const context = canvas.getContext('2d');
 // fill the window
 const resizeCanvas = () => {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+    canvas.height = window.innerHeight - document.getElementById('navbar')?.offsetHeight || 0;
+} 
 
 // document.getElementById('apod-button').addEventListener('click', () => {
 //     if (data) {
