@@ -55,9 +55,9 @@
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 }
 
-.trivia-option:hover {
+/* .trivia-option:hover {
     background-color: #888;
-}
+} */
 
 .trivia-option.correct {
     background-color: #4caf50;
