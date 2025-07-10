@@ -5,8 +5,8 @@
     left: 0;
     width: 100vw;
     height: calc(100vh - 50px);
-    /* overflow: hidden; */
-    margin-top: 50px;
+    overflow: hidden;
+    /* margin-top: 50px; */
 }
 
 canvas {
@@ -21,7 +21,7 @@ canvas {
     color: blue;
     position: absolute;
     padding: 2px 8px;
-    top: 35px;
+    top: 65px;
     left: 50%;
     background-color: rgba(255, 255, 255, 0.4);
     width: 80%;
