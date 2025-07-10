@@ -11,14 +11,14 @@ const context = canvas.getContext('2d');
 // fill the window
 const resizeCanvas = () => {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - document.getElementById('navbar')?.offsetHeight || 0;
+    canvas.height = window.innerHeight;
 }
 
-document.getElementById('apod-button').addEventListener('click', () => {
-    if (data) {
-        showModal(data.title, data.explanation);
-    }
-});
+// document.getElementById('apod-button').addEventListener('click', () => {
+//     if (data) {
+//         showModal(data.title, data.explanation);
+//     }
+// });
 
 // get center
 const centerX = () => canvas.width / 2;
@@ -92,9 +92,6 @@ const drawPlanets = (sunRadius) => {
     const sizeScale = Math.min(canvas.width, canvas.height) / 800;
 
     planets.forEach(planet => {
-
-        // planet.radius = sunRadius * 0.1 * sizeScale * planet.sizeRatio;
-;
         // distance
         planet.distance = Math.max(30, zoomFactor * (minGap + Math.pow(planet.ratio, 0.6) * maxGap));
 

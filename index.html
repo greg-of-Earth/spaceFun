@@ -16,119 +16,119 @@
 
     
 </head>
-<header>
-    <nav id="navbar">
-        <button id="menu-toggle" aria-label="Toggle menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
 
-        <div id="menu-container">
-            <ul id="header-items">
-                <li><a href="#home">Home</a></li>
-                <li>
-                    <a href="#about">About</a>
-                    <ul class="dropdown">
-                        <li><a href="#mercury">Mercury</a></li>
-                        <li><a href="#mercury">Venus</a></li>
-                        <li><a href="#mercury">Earth</a></li>
-                        <li><a href="#mercury">Mars</a></li>
-                        <li><a href="#mercury">Jupiter</a></li>
-                        <li><a href="#mercury">Saturn</a></li>
-                        <li><a href="#mercury">Uranus</a></li>
-                        <li><a href="#mercury">Neptune</a></li>
-                    </ul>
-                </li>
-                <li><a href="#apod">APOD</a></li>
-                <li><a href="#games">Games</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
 <body>
+    <header>
+        <nav id="navbar">
+            <button id="menu-toggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
     
-
-    <div id="page-container">
-        <!-- Home page -->
-        <div id="solarSystem-container">
-            <h2 id="home-info">Click a planet to learn more...</h2>
-            <canvas id="solarSystem"></canvas>
-            <div id="zoomControls">
-                <div class="zoomToggle" id="zoomInToggle">
-                    <i class="fa-solid fa-circle-plus"></i>
-                </div>
-                <div class="zoomToggle" id="zoomOutToggle">
-                    <i class="fa-solid fa-circle-minus"></i>
-                </div>
+            <div id="menu-container">
+                <ul id="header-items">
+                    <li><a href="#home">Home</a></li>
+                    <li>
+                        <a href="#about">About</a>
+                        <ul class="dropdown">
+                            <li><a href="#mercury">Mercury</a></li>
+                            <li><a href="#mercury">Venus</a></li>
+                            <li><a href="#mercury">Earth</a></li>
+                            <li><a href="#mercury">Mars</a></li>
+                            <li><a href="#mercury">Jupiter</a></li>
+                            <li><a href="#mercury">Saturn</a></li>
+                            <li><a href="#mercury">Uranus</a></li>
+                            <li><a href="#mercury">Neptune</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#apod">APOD</a></li>
+                    <li><a href="#games">Games</a></li>
+                </ul>
             </div>
-            
-            
-        </div>
-
-        <!-- About page -->
-        <div id="about-section" class="hidden">
-            <h1 id="about-title">About Solar System</h1>
-            <p id="about-description">Facts about Solar System</p>
-        </div>
-
-        <!-- Astronomy Picture of the Day page -->
-        <div id="apod-section" class="hidden">
-            <div id="loading" class="hidden">
-                <i class="fa-solid fa-gear fa-spin fa-3x"></i>
-            </div>
-
-            
-            <div id="apod-image-container">        
-                <img id="apod-image" alt="Astronomy Picture of the Day">
-                <button id="apod-button" title="Description">
-                    <i class="fa-solid fa-circle-info"></i>
-                </button>
-            </div>
-            <h2 id="apod-image-title"></h2>
-        </div>
-
-        <!-- Game page -->
-        <div id="spaceship-container">
-            <div class="spaceship" id="spaceship">
-                <!-- top -->
-                <div class="console-display" id="statusDisplay" data-content="status">Engines Idle</div>
-                <div class="console-display" id="timerDisplay" data-content="timer">Timer</div>
-                <div class="console-btn disabled" id="exitBtn" data-content="exit">Shut Down</div>
-
-                <!-- left -->
-                <div class="console-display" id="scoreDisplay" data-content="Score">Score: 0</div>
-
-                <!-- screen -->
-                <div id="screen">
-                    <h2>Welcome, Captain</h2>
-                    <p>Your mission awaits...</p>
+        </nav>
+    </header>
+    
+        <div id="page-container">
+            <!-- Home page -->
+            <div id="solarSystem-container">
+                <h2 id="home-info">Click a planet to learn more...</h2>
+                <canvas id="solarSystem"></canvas>
+                <div id="zoomControls">
+                    <div class="zoomToggle" id="zoomInToggle">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                    <div class="zoomToggle" id="zoomOutToggle">
+                        <i class="fa-solid fa-circle-minus"></i>
+                    </div>
                 </div>
                 
-                <!-- right -->
-                <div class="console-display" id="healthBarContainer" >
+                
+            </div>
+
+            <!-- About page -->
+            <div id="about-section" class="hidden">
+                <h1 id="about-title">About Solar System</h1>
+                <p id="about-description">Facts about Solar System</p>
+            </div>
+
+            <!-- Astronomy Picture of the Day page -->
+            <div id="apod-section" class="hidden">
+                <div id="loading" class="hidden">
+                    <i class="fa-solid fa-gear fa-spin fa-3x"></i>
+                </div>
+
+                
+                <div id="apod-image-container">        
+                    <img id="apod-image" alt="Astronomy Picture of the Day">
+                    <button id="apod-button" title="Description">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                </div>
+                <h2 id="apod-image-title"></h2>
+            </div>
+
+            <!-- Game page -->
+            <div id="spaceship-container">
+                <div class="spaceship" id="spaceship">
+                    <!-- top -->
+                    <div class="console-display" id="statusDisplay" data-content="status">Engines Idle</div>
+                    <div class="console-display" id="timerDisplay" data-content="timer">Timer</div>
+                    <div class="console-btn disabled" id="exitBtn" data-content="exit">Shut Down</div>
+
+                    <!-- left -->
+                    <div class="console-display" id="scoreDisplay" data-content="Score">Score: 0</div>
+
+                    <!-- screen -->
+                    <div id="screen">
+                        <h2>Welcome, Captain</h2>
+                        <p>Your mission awaits...</p>
+                    </div>
                     
-                    <div id="healthBar">Health</div>
-                </div>
-                
+                    <!-- right -->
+                    <div class="console-display" id="healthBarContainer" >
+                        
+                        <div id="healthBar">Health</div>
+                    </div>
+                    
 
-                <!-- bottom -->
-                <div class="console-btn" id="logsBtn"  data-content="logs">Logs</div>
-                <div class="console-btn" id="startBtn" data-content="missionStart">Mission Start</div>
-                <div class="console-btn disabled" id="restartBtn" data-content="restart">Restart Mission</div>
+                    <!-- bottom -->
+                    <div class="console-btn" id="logsBtn"  data-content="logs">Logs</div>
+                    <div class="console-btn" id="startBtn" data-content="missionStart">Mission Start</div>
+                    <div class="console-btn disabled" id="restartBtn" data-content="restart">Restart Mission</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pop out Modal -->
+        <div id="modal" class="hidden">
+            <div id="modal-content">
+                <span id="close">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-body"></p>
             </div>
         </div>
 
-    </div>
-
-    <!-- Pop out Modal -->
-    <div id="modal" class="hidden">
-        <div id="modal-content">
-            <span id="close">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p id="modal-body"></p>
-        </div>
-    </div>
-
-
+ 
 
 </body>
 <script src="main.js"></script>

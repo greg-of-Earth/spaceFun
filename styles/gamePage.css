@@ -2,12 +2,10 @@
     background: radial-gradient(#000015, #000);
     font-family: 'Orbitron', sans-serif;
     color: lime;
-    height: calc(100vh - 50px);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px 0 0 0;
-    /* padding-top: 50px; */
 }
 
 .spaceship {
@@ -121,7 +119,8 @@
         overflow: hidden; /* Prevent scrollbars */
         height: 100%;
     }
-    
+
+   
 
     #spaceship-container {
         height: 100dvh;

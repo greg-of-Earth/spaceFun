@@ -2,7 +2,7 @@
     align-items: center;
     text-align: center;
     color: white;
-    padding-top: 50px;
+    /* padding-top: 50px; */
     box-sizing: border-box;
     width: 100vw;
     height: 100dvh;
@@ -20,8 +20,8 @@
 }
 
 #apod-image-title {
-    position: absolute;
-    bottom: 0%;
+    position: fixed;
+    bottom: 35px;
     color: white;
     background: rgba(0, 0, 0, 0.4);
     z-index: 2;
