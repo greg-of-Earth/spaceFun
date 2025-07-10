@@ -156,8 +156,8 @@ const animate = () => {
 // get planet position when it is clicked on
 const planetClick = (event) => {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = event.pageX - rect.left;
-    const mouseY = event.pageY - rect.top;
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
     checkPlanetClick(mouseX, mouseY);
 };
@@ -181,8 +181,8 @@ const checkPlanetClick = (mouseX, mouseY) => {
 
 canvas.addEventListener('mousemove', (event) => {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = event.pageX - rect.left;
-    const mouseY = event.pageY - rect.top;
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
     let hoveringPlanet = false;
 
@@ -201,8 +201,8 @@ canvas.addEventListener('mousemove', (event) => {
 canvas.addEventListener('touchend', (e) => {
     const rect = canvas.getBoundingClientRect();
     const touch = e.changedTouches[0];
-    const mouseX = touch.pageX - rect.left;
-    const mouseY = touch.pageY - rect.top;
+    const mouseX = touch.clientX - rect.left;
+    const mouseY = touch.clientY - rect.top;
     checkPlanetClick(mouseX, mouseY);
 })
 
