@@ -96,8 +96,12 @@ const drawPlanets = (sunRadius) => {
         planet.distance = Math.max(30, zoomFactor * (minGap + Math.pow(planet.ratio, 0.6) * maxGap));
 
         const zoomSizeMultiplier = 1 + (1 - planet.ratio) * (zoomFactor - 1) * 1;
+
         planet.radius = sunRadius * 0.1 * sizeScale * planet.sizeRatio * zoomSizeMultiplier;
-        
+        if (isMobile) {
+            planet.radius = Math.max(planet.radius, 16);
+        }
+
         planet.angle -= planet.speed / Math.pow(zoomFactor, 1.5);
 
         // planets position
