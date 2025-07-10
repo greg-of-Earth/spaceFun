@@ -47,11 +47,7 @@
     min-width: 80px;
     background-color: #fff;
     transition: background-color 0.3s;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
-    touch-action: manipulation;
+    
 }
 
 .trivia-option:hover {
@@ -68,6 +64,16 @@
     background-color: #f44336;
     color: white;
     animiation: pulseRed 1.5s ease forwards;
+}
+
+.trivia-option,
+.trivia-option.correct,
+.trivia-option.incorrect {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    touch-action: manipulation;
 }
 
 .trivia-option:focus {
