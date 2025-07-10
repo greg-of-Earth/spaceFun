@@ -33,7 +33,7 @@ canvas {
 #zoomControls {
     display: flex;
     gap: 35px;
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
