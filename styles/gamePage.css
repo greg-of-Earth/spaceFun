@@ -15,7 +15,7 @@
     grid-template-rows: .5fr 3fr .5fr;
     gap: 10px;
     width: 100vw;
-    height: 95vh;
+    height: 90vh;
     padding: 10px;
     box-sizing: border-box;
 }
