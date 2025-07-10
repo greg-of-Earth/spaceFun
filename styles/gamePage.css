@@ -32,6 +32,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 6px 0 lime, 0 6px 10px rgba(0, 0, 0, 0.3);
+    
+}
+
+.console-btn.disabled {
+    color: #444;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-shadow: none;
+    background-color: #222;
+    opacity: 0.5;
+    transition: none;
+    box-shadow: none;
+    border: 2x solid #222;
 }
 
 .console-display {
@@ -49,6 +63,12 @@
 .console-btn:hover {
     background-color: lime;
     color: black;
+    box-shadow: 0 5px 0 #080, 0 7px 14px rgba(0, 255, 0, 0.3);
+}
+
+.console-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #060, 0 3px 8px rgba(0, 255, 0, 0.2);
 }
 
 #screen {

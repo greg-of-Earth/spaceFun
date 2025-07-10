@@ -5,6 +5,11 @@ const statusDisplay = document.getElementById('statusDisplay');
 const timerDisplay = document.getElementById('timerDisplay');
 const scorecard = document.getElementById('scoreDisplay');
 
+const startBtn = document.getElementById('startBtn');
+const logsBtn = document.getElementById('logsBtn');
+const restartBtn = document.getElementById('restartBtn');
+const exitBtn = document.getElementById('exitBtn');
+
 
 document.querySelectorAll('.console-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -15,12 +20,18 @@ document.querySelectorAll('.console-btn').forEach(btn => {
             case 'missionStart':
                 restartGame(screen);
                 break;
-            case 'logs': screen.innerHTML = `<h2>Loading Leaderboard...</h2>`;
+            case 'logs': 
+                screen.innerHTML = `<h2>Loading Leaderboard...</h2>`;
+                logsBtn.classList.add('disabled');
+                exitBtn.classList.remove('disabled');
                 break;
             case 'restart': 
                 restartGame(screen);
                 break;
             case 'exit': 
+                document.querySelectorAll('.console-btn').forEach(disBtn => {
+                    disBtn.classList.add('disabled');
+                })
                 screen.innerHTML = `<h2>Shutting down systems...</h2>`;
                 resetHomeScreen(screen);
                 break;
@@ -61,6 +72,12 @@ const restartGame = (screen) => {
     scorecard.textContent = "Score: 0";
     updateHealth(3);
 
+    startBtn.classList.add('disabled');
+    logsBtn.classList.add('disabled');
+    restartBtn.classList.add('disabled');
+
+    statusDisplay.innerHTML = 'Engines Idle';
+
     const countdown = document.createElement('p');
     countdown.id = 'countdown';
     countdown.textContent = '5';
@@ -79,24 +96,29 @@ const restartGame = (screen) => {
             heading.id = 'launchHeading';
             heading.textContent = 'Lift off!!';
             screen.appendChild(heading);
-            
-
-
         }
     }, 1000);   
+
     setTimeout(async () => {
         await loadGame(screen);
         renderQuiz(questions);
+        restartBtn.classList.remove('disabled');
+        exitBtn.classList.remove('disabled');
+        statusDisplay.innerHTML = 'Engines Engaged';
     }, 6000)
 }
 
 
 const resetHomeScreen = (screen) => {
+
     setTimeout(() => {
         screen.innerHTML = 
             `<h2>Welcome, Captain</h2>
              <p>Your mission awaits...</p>
             `
+        startBtn.classList.remove('disabled');
+        logsBtn.classList.remove('disabled');
+        
     }, 2500);
     timerDisplayReset();
     scorecard.textContent = "Score: 0";

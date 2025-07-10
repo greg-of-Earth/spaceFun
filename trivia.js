@@ -90,7 +90,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
         quesElement.classList.add('trivia-question');
 
         // create text elements and append question text
-        const quesText = document.createElement('h4');
+        const quesText = document.createElement('h3');
         quesText.textContent = question.question;
         quesElement.appendChild(quesText);
 
