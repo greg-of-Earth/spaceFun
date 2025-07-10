@@ -45,8 +45,8 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
         if (!gameInProgress) return; // restart protection
         // clear previous
         timerDisplayReset();
-        requestAnimationFrame(() => {
-            triviaQuesContainer.innerHTML = '';
+        
+        triviaQuesContainer.innerHTML = '';
         
         
         clearInterval(timerInterval); // clear timer
@@ -99,9 +99,6 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
             const button = document.createElement('button');
             button.textContent = option;
             button.classList.add('trivia-option');
-            // button.style.pointerEvents = 'none';
-            // button.setAttribute('role', 'button');
-            // button.setAttribute('tabindex', '0');
 
             // listen for chosen answer
             button.addEventListener('click', () => {
@@ -114,7 +111,6 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                 const allBtns = quesElement.querySelectorAll('button');
                 allBtns.forEach(btn => btn.disabled = true);
 
-                
 
                 if (option === question.answer) {
                     button.classList.add('correct');
@@ -152,7 +148,6 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
     
         // display the question 
         triviaQuesContainer.appendChild(quesElement);
-    });
         
     }
 
@@ -206,7 +201,7 @@ export const updateHealth = (health) => {
     }
 }
 
-const wrongAnswer = (health, question) => {
+const wrongAnswer = (health) => {
     const spaceship = document.getElementById('spaceship');
     spaceship.classList.add('shake');
 

@@ -132,3 +132,10 @@
         box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
     }
 }
+
+@media (hover: hover) and (pointer: fine) {
+    .trivia-option:hover {
+      background-color: #888;
+    }
+  }
+  
