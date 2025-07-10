@@ -19,9 +19,9 @@ const resizeCanvas = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight - navbarHeight;
 
-    canvas.style.position = 'absolute';
-    canvas.style.top = `${navbarHeight}px`;
-    canvas.style.left = '0';
+    // canvas.style.position = 'absolute';
+    // canvas.style.top = `${navbarHeight}px`;
+    // canvas.style.left = '0';
 } 
 
 // document.getElementById('apod-button').addEventListener('click', () => {
