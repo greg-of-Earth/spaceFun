@@ -1,0 +1,60 @@
+#solarSystem-container {
+    display: flex;
+    flex-direction: column;
+}
+
+canvas {
+    display: block;
+    background-color: black;
+}
+
+#home-info {
+    text-align: center;
+    color: blue;
+    position: absolute;
+    padding: 2px 8px;
+    top: 65px;
+    left: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+#zoomControls {
+    display: flex;
+    gap: 35px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 18px;
+    padding: 8px;
+}
+
+.zoomToggle {
+    cursor: pointer;
+    color: white;
+    align-items: center;
+    top: 15px;
+    bottom: 15px;
+}
+
+.zoomToggle i {
+    font-size: 1rem;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .zoomToggle {
+        top: 55px;
+        bottom: 55px;
+    }
+    
+    .zoomToggle i {
+        font-size: 3.5rem;
+        color: black;
+    }
+}

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles/trivia.css"/>
     <link rel="stylesheet" href="styles/timer.css"/>
     <link rel="stylesheet" href="styles/apod.css"/>
+    <link rel="stylesheet" href="styles/solarSystem.css"/>
+    <link rel="stylesheet" href="styles/modal.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
@@ -48,8 +50,18 @@
     <div id="page-container">
         <!-- Home page -->
         <div id="solarSystem-container">
+            <h2 id="home-info">Click a planet to learn more...</h2>
             <canvas id="solarSystem"></canvas>
-            <h4 id="home-info">Click a planet to learn more...</h4>
+            <div id="zoomControls">
+                <div class="zoomToggle" id="zoomInToggle">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </div>
+                <div class="zoomToggle" id="zoomOutToggle">
+                    <i class="fa-solid fa-circle-minus"></i>
+                </div>
+            </div>
+            
+            
         </div>
 
         <!-- About page -->

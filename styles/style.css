@@ -83,64 +83,6 @@ body {
     overflow: hidden;
 }
 
-#solarSystem-container {
-    display: flex;
-    flex-direction: column;
-}
-
-canvas {
-    display: block;
-}
-
-#home-info {
-    text-align: center;
-    color: blue;
-    position: absolute;
-    padding: 2px 8px;
-    bottom: 10px;
-    right: 15px;
-    background-color: white;
-}
-
-#modal.hidden {
-    display: none;
-}
-
-#modal {
-    position: fixed;
-    top: 60px;
-    right: 0;
-    width: 40%;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    margin-left: auto;
-    z-index: 100;
-    overflow: auto;
-}
-
-#modal-title {
-    text-decoration: underline;
-}
-
-#modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    max-height: 75vh;
-    text-align: center;
-    align-items: center;
-    overflow-y: auto;
-}
-
-#close {
-    cursor: pointer;
-    float: right;
-    font-size: 24px;
-}
 
 .hidden {
     display: none;
@@ -165,6 +107,7 @@ canvas {
     color: white;
 }
 
+// navbar media query
 @media screen and (max-width: 468px) {
     #menu-toggle {
         display: block;
@@ -193,8 +136,6 @@ canvas {
     }
 
     #menu-container.open {
-        /* display: flex;
-        width: 20%; */
         left: 0;
     }
 
@@ -205,14 +146,6 @@ canvas {
         list-style: none;
         padding: 0;
     }
-
-    /* #navbar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        height: auto;
-        /* width: auto; */
-    } */
 
     #header-items li {
         width: 100%;
@@ -227,9 +160,6 @@ canvas {
     }
 
     .dropdown {
-        /* position: static;
-        display: block;
-        width: 100%; */
         display: none;
         padding-left: 20px;
     }
