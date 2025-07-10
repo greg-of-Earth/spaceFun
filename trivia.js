@@ -99,7 +99,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
             const button = document.createElement('button');
             button.textContent = option;
             button.classList.add('trivia-option');
-            button.style.pointerEvents = 'none';
+            // button.style.pointerEvents = 'none';
             // button.setAttribute('role', 'button');
             // button.setAttribute('tabindex', '0');
 
@@ -149,10 +149,10 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                 
             quesElement.appendChild(button);
         });
-    });
+    
         // display the question 
         triviaQuesContainer.appendChild(quesElement);
-        
+    });
         
     }
 
