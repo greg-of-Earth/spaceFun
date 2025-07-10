@@ -92,6 +92,14 @@
     font-size: 0.9rem;
 }
 
+.trivia-option::selection {
+    background: transparent;
+}
+
+.trivia-option::-moz-selection {
+    background: transparent;
+}
+
 
 @keyframes pulseGreen {
     0% {
