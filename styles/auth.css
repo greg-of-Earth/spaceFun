@@ -20,6 +20,38 @@
     display: none;
 }
 
+#gameFormTitle {
+    color: blue;
+}
+
 #cancelBtn {
     margin-bottom: 15px;
+}
+
+#formToggleText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+#formToggleLink {
+    width: 50%;
+}
+
+input {
+    width: 90%;
+}
+
+#authModal button {
+    border-radius: 8px;
+    width: 50%;
+}
+
+@media screen and (max-width: 468px) {
+    #authModal{
+        width: 70%;
+    }
+    
 }
