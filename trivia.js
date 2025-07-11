@@ -1,4 +1,41 @@
 "use strict"
+import { auth, db } from './firebase-init.js';
+import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+
+const saveHighScore = async (score) => {
+    const user = auth.currentUser;
+    console.log('user is: ', user);
+
+    if (!user) {
+        console.warn("no user signed in, not saving");
+        return;
+    }
+
+    try {
+        const userRef = doc(db, "users", user.uid)
+        const userSnap = await getDoc(userRef);
+
+        // update if new high score
+        const existingHighScore = userSnap.exists() ? userSnap.data().highScore || 0 : 0;
+
+        if (score > existingHighScore) {
+            await setDoc(userRef, { highScore: score }, { merge: true });
+            const screen = document.getElementById('screen');
+            screen.innerHTML = '';
+            const highScore = document.createElement('h1');
+            highScore.innerHTML = `New Personal Record!<br><br> Score: ${score}`;
+            highScore.style = "color: lime";
+            screen.appendChild(highScore);
+            console.log(`high score updated to ${score}`);
+        } else {
+            console.log('not a new high score');
+        }
+    } catch (error) {
+        console.error('Failed to save high score:', error);
+    }
+};
+
 
 export let questions = [];
 
@@ -72,7 +109,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
             // if timer up, next question displays
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                health = wrongAnswer(health, question);
+                health = wrongAnswer(health, score);
             
                 curIndex++;
                 if (curIndex < questions.length) {
@@ -80,6 +117,9 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                 }else {
                     triviaQuesContainer.innerHTML = '<p>Mission completed!</p>'
                     timerDisplayReset();
+                    setTimeout(() => {
+                        saveHighScore(score);
+                    }, 2000);
                 }
             }
 
@@ -119,7 +159,7 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                     
                 } else {
                     button.classList.add('incorrect');
-                    health = wrongAnswer(health, question);
+                    health = wrongAnswer(health, score);
                    
 
                     // show correct answer
@@ -138,6 +178,9 @@ export const renderQuiz = (questions, startIndx = 0, startScore = 0, startTime =
                     } else {
                         triviaQuesContainer.innerHTML = '<p>Mission completed!</p>'
                         timerDisplayReset();
+                        setTimeout(() => {
+                            saveHighScore(score);
+                        }, 2000);
                         
                     }
                 }, 1500);
@@ -183,7 +226,7 @@ export const stopQuiz = () => {
   
 }
 
-export const updateHealth = (health) => {
+export const updateHealth = (health, score) => {
     const healthBar = document.getElementById('healthBar');
     const percentage = (health / 3) * 100;
     if (window.innerWidth <= 768) {
@@ -200,13 +243,14 @@ export const updateHealth = (health) => {
         gameOver.innerHTML = 'Maximum Damage Sustained.<br><br> Game Over.';
         gameOver.style = "color: red";
         screen.appendChild(gameOver);
-        const statusDisplay = document.getElementById('statusDisplay');
-        statusDisplay.textContent = 'Engine Failure'
+        setTimeout(() => {
+            saveHighScore(score);
+        }, 2000);
         stopQuiz();
     }
 }
 
-const wrongAnswer = (health) => {
+const wrongAnswer = (health, score) => {
     const spaceship = document.getElementById('spaceship');
     spaceship.classList.add('shake');
 
@@ -215,6 +259,6 @@ const wrongAnswer = (health) => {
     }, { once: true });
 
     const newHealth = Math.max(0, health - 1);
-    updateHealth(newHealth);
+    updateHealth(newHealth, score);
     return newHealth
 }

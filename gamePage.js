@@ -1,15 +1,37 @@
 "use strict";
 import { loadQuestions, questions, renderQuiz, timerDisplayReset, stopQuiz, updateHealth } from "./trivia.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import { auth } from './firebase-init.js';
+import { logOut } from "./auth.js";
 
-const statusDisplay = document.getElementById('statusDisplay');
+
+
+
+// const statusDisplay = document.getElementById('statusDisplay');
 const timerDisplay = document.getElementById('timerDisplay');
 const scorecard = document.getElementById('scoreDisplay');
+
+const logInBtn = document.getElementById('logInBtn');
 
 const startBtn = document.getElementById('startBtn');
 const logsBtn = document.getElementById('logsBtn');
 const restartBtn = document.getElementById('restartBtn');
 const exitBtn = document.getElementById('exitBtn');
 
+let currentUser = null;
+
+onAuthStateChanged(auth, (user) => {
+    currentUser = user;
+    if (user) {
+        logInBtn.textContent = "Log Out";
+        logInBtn.setAttribute('data-content', 'LogOut');
+        console.log("User signed in:", user.email);
+    } else {
+        logInBtn.textContent = "Log In";
+        logInBtn.setAttribute('data-content', 'LogIn');
+        console.log("No user is signed in.");
+    }
+});
 
 document.querySelectorAll('.console-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -17,6 +39,21 @@ document.querySelectorAll('.console-btn').forEach(btn => {
         const screen = document.getElementById('screen');
 
         switch (content) {
+            // no logged in show modal
+            case 'LogIn':
+                console.log('trying to log in. status is currently: ')
+                document.getElementById('authModal').classList.remove('hidden');
+                btn.setAttribute('data-content', 'LogOut');
+                btn.textContent = 'Log Out';
+                
+                break;
+            // tryin to logout
+            case 'LogOut':
+                console.log('trying to log out. status is currently: ')
+                logOut();
+                btn.setAttribute('data-content', 'LogIn');
+                btn.textContent = 'Log In';
+                break;
             case 'missionStart':
                 restartGame(screen);
                 break;
@@ -61,7 +98,7 @@ const loadGame = async (screen) => {
         timerDisplay.appendChild(timerPara);
     }
 
-    statusDisplay.innerHTML = 'Engines Engaged';
+    // statusDisplay.innerHTML = 'Engines Engaged';
 }
 
 
@@ -76,7 +113,7 @@ const restartGame = (screen) => {
     logsBtn.classList.add('disabled');
     restartBtn.classList.add('disabled');
 
-    statusDisplay.innerHTML = 'Engines Idle';
+    // statusDisplay.innerHTML = 'Engines Idle';
 
     const countdown = document.createElement('p');
     countdown.id = 'countdown';
@@ -104,7 +141,7 @@ const restartGame = (screen) => {
         renderQuiz(questions);
         restartBtn.classList.remove('disabled');
         exitBtn.classList.remove('disabled');
-        statusDisplay.innerHTML = 'Engines Engaged';
+        // statusDisplay.innerHTML = 'Engines Engaged';
     }, 6000)
 }
 
@@ -118,10 +155,11 @@ const resetHomeScreen = (screen) => {
             `
         startBtn.classList.remove('disabled');
         logsBtn.classList.remove('disabled');
+        logInBtn.classList.remove('disabled');
         
     }, 2500);
     timerDisplayReset();
     scorecard.textContent = "Score: 0";
     updateHealth(3);
-    statusDisplay.innerHTML = 'Engines Idle';
+    // statusDisplay.innerHTML = 'Engines Idle';
 }
