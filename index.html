@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles/apod.css"/>
     <link rel="stylesheet" href="styles/solarSystem.css"/>
     <link rel="stylesheet" href="styles/modal.css"/>
+    <link rel="stylesheet" href="styles/auth.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
@@ -53,12 +54,13 @@
                 <h2 id="home-info">Click a planet to learn more...</h2>
                 <canvas id="solarSystem"></canvas>
                 <div id="zoomControls">
-                    <div class="zoomToggle" id="zoomInToggle">
-                        <i class="fa-solid fa-circle-plus"></i>
-                    </div>
                     <div class="zoomToggle" id="zoomOutToggle">
                         <i class="fa-solid fa-circle-minus"></i>
                     </div>
+                    <div class="zoomToggle" id="zoomInToggle">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                    
                 </div>
                 
                 
@@ -90,7 +92,7 @@
             <div id="spaceship-container">
                 <div class="spaceship" id="spaceship">
                     <!-- top -->
-                    <div class="console-display" id="statusDisplay" data-content="status">Engines Idle</div>
+                    <div class="console-btn" id="logInBtn" data-content="LogIn">Log In</div>
                     <div class="console-display" id="timerDisplay" data-content="timer">Timer</div>
                     <div class="console-btn disabled" id="exitBtn" data-content="exit">Shut Down</div>
 
@@ -128,13 +130,30 @@
             </div>
         </div>
 
- 
+        <!-- Game Auth -->
+         <div id="authModal" class="hidden">
+            <h2 id="gameFormTitle">Log In</h2>
+            <input type="email" id="email" placeholder="email" autocomplete="emial"/>
+            <input type="password" id="password" placeholder="password" autocomplete="current-password"/>
+            <button id="authActionBtn">Log In</button>
+            <p id="formToggleText">
+                <span id="toggleText">Don't have an account? </span>
+                <button id="formToggleLink" type="button">Sign Up</button>
+            </p>
+            <button id="cancelBtn">Cancel</button>
+         </div>
 
+         
+         
 </body>
+<script type="module" src="gameFormToggle.js"></script>
 <script src="main.js"></script>
 <script src="apod.js"></script>
 <script type="module" src="gamePage.js"></script>
-<!-- <script src="trivia.js"></script> -->
+<script type="module" src="firebase-init.js"></script>
+<script type="module" src="auth.js"></script>
+<!-- <script type="module" src="scoreDatabase.js"></script> -->
+<script type="module" src="trivia.js"></script>
 <script src="render.js"></script>
 
 </html>
