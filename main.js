@@ -53,7 +53,7 @@ const drawSun = () => {
     context.beginPath();
     context.arc(centerX(), centerY(), sunRadius, 0, Math.PI * 2); 
     context.fillStyle = "yellow";
-    context.shadowBlur = 20;
+    context.shadowBlur = 25;
     context.shadowColor = "yellow";
     context.fill();
     context.shadowBlur = 0;
