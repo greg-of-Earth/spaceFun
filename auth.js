@@ -41,7 +41,7 @@ const logIn = async () => {
     
     try{
         const userCred = await signInWithEmailAndPassword(auth, email, password);
-        alert('Sign in successful ' + userCred);
+        alert('Sign in successful');
         document.getElementById('authModal').classList.add('hidden');
         emailInput.value = '';
         passwordInput.value = '';
