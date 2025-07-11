@@ -43,16 +43,16 @@ document.querySelectorAll('.console-btn').forEach(btn => {
             case 'LogIn':
                 console.log('trying to log in. status is currently: ')
                 document.getElementById('authModal').classList.remove('hidden');
-                btn.setAttribute('data-content', 'LogOut');
-                btn.textContent = 'Log Out';
+                // btn.setAttribute('data-content', 'LogOut');
+                // btn.textContent = 'Log Out';
                 
                 break;
             // tryin to logout
             case 'LogOut':
                 console.log('trying to log out. status is currently: ')
                 logOut();
-                btn.setAttribute('data-content', 'LogIn');
-                btn.textContent = 'Log In';
+                // btn.setAttribute('data-content', 'LogIn');
+                // btn.textContent = 'Log In';
                 break;
             case 'missionStart':
                 restartGame(screen);

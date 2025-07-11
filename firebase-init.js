@@ -3,9 +3,6 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyCbbr_G-0a2PGuTMvBEope3tSefN4r4JBg",
