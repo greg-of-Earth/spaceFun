@@ -19,8 +19,8 @@ const saveHighScore = async (score) => {
         // update if new high score
         const existingHighScore = userSnap.exists() ? userSnap.data().highScore || 0 : 0;
 
-        if (score > existingHighScore) {
-            await setDoc(userRef, { highScore: score }, { merge: true });
+        if (score > existingHighScore || !userSnap.exists() || !userSnap.data.email) {
+            await setDoc(userRef, { highScore: score, email: user.email }, { merge: true });
             const screen = document.getElementById('screen');
             screen.innerHTML = '';
             const highScore = document.createElement('h1');
