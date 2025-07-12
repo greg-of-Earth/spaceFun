@@ -49,7 +49,6 @@ const getSunRadius = () => {
     return Math.max(20, Math.min(canvas.width, canvas.height) * 0.05) * Math.sqrt(zoomFactor);
 } 
 
-// array of planets 
 let planets = []
 
 // fetch info from json
@@ -78,8 +77,6 @@ loadSystem();
 
 // draw the sun in center
 const drawSun = () => {
-    // context.clearRect(0, 0, canvas.width, canvas.height);
-
     const sunRadius = getSunRadius();
 
     sun.screenX = centerX();
@@ -92,8 +89,6 @@ const drawSun = () => {
     context.shadowColor = "yellow";
     context.fill();
     context.shadowBlur = 0;
-
-    // return sunRadius;
 }
 
 const earthSpeed = .00075
@@ -104,7 +99,7 @@ const maxCanvasRadius = Math.min(canvas.width, canvas.height) * (isMobile ? 0.4 
 const minGap = 40;
 const maxGap = maxCanvasRadius - minGap;
 
-
+// draw planets and orbits
 const drawPlanets = (sunRadius) => {
     const sizeScale = Math.min(canvas.width, canvas.height) / 800;
 
@@ -157,10 +152,10 @@ const animate = () => {
     requestAnimationFrame(animate);
 };
 
-
+// larger click area on mobile
 const clickBuffer = isMobile ? 25 : 10;
 
-
+// handle clicks on canvas
 const handleCanvasClick = (event) => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
@@ -185,6 +180,7 @@ const handleCanvasClick = (event) => {
     });
 }
 
+// check if click is on sun
 const isClickOnSun = (mouseX, mouseY, sunRadius) => {
     const dx = mouseX - centerX();
     const dy = mouseY - centerY();
@@ -193,62 +189,17 @@ const isClickOnSun = (mouseX, mouseY, sunRadius) => {
     return distance <= sunRadius + clickBuffer;
 }
 
+
 canvas.addEventListener("click", handleCanvasClick);
 
-// get planet position when it is clicked on
-// const planetClick = (event) => {
-//     const rect = canvas.getBoundingClientRect();
-//     const mouseX = event.clientX - rect.left;
-//     const mouseY = isMobile ? event.clientY - rect.top - navbarHeight : event.clientY - rect.top
-
-//     checkPlanetClick(mouseX, mouseY);
-// };
-
-// const clickBufferScaled = clickBuffer * zoomFactor;
-
-// check if planet is clicked on 
-// const checkPlanetClick = (mouseX, mouseY) => {
-//     planets.forEach(planet => {
-//         const dx = mouseX - planet.screenX;
-//         const dy = mouseY - planet.screenY;
-//         const distance = Math.sqrt(dx * dx + dy * dy);
-//         // if planet clicked on show the modal
-//         if (distance <= planet.radius + clickBuffer) {
-//             showModal(planet.name, planet.description);
-//             console.log('clicked me', planet);
-//         }
-//     });
-// }
-
-// check if planet is clicked on 
-// const checkSunClick = (mouseX, mouseY, sunRadius) => {      
-//     const dx = mouseX - sun.screenX;
-//     const dy = mouseY - sun.screenY;
-//     const distance = Math.sqrt(dx * dx + dy * dy);
-
-//     if (distance <= sunRadius + clickBuffer) {
-//         showModal(sun.name, sun.description);
-//         console.log('clicked me', sun);
-//     }
-// }
-
-// const sunClick = (event) => {
-//     const rect = canvas.getBoundingClientRect();
-//     const mouseX = event.clientX - rect.left;
-//     const mouseY = isMobile ? event.clientY - rect.top - navbarHeight : event.clientY - rect.top
-
-//     const sunRadius = Math.max(20, Math.min(canvas.width, canvas.height) * 0.05) * Math.sqrt(zoomFactor);
-
-//     checkSunClick(mouseX, mouseY, sunRadius);
-// };
-
-
+// highlight what mouse is over 
 canvas.addEventListener('mousemove', (event) => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
 
     let hoveringPlanet = false;
+    let hoveringSun = false;
 
     planets.forEach(planet => {
         const dx = mouseX - planet.screenX;
@@ -259,7 +210,16 @@ canvas.addEventListener('mousemove', (event) => {
             hoveringPlanet = true;
         }
     });
-    canvas.style.cursor = hoveringPlanet ? 'pointer' : 'default';
+
+    const sunRadius = getSunRadius();
+    const dx = mouseX - centerX();
+    const dy = mouseY - centerY();
+    const sunDistance = Math.sqrt(dx * dx + dy * dy);
+
+    hoveringSun = sunDistance <= sunRadius;
+
+    const isHovering = hoveringPlanet || hoveringSun;
+    canvas.style.cursor = isHovering ? 'pointer' : 'default';
 });
 
 canvas.addEventListener('touchend', (e) => {
@@ -268,9 +228,6 @@ canvas.addEventListener('touchend', (e) => {
     const mouseX = touch.clientX - rect.left;
     const mouseY = isMobile ? e.clientY - rect.top - navbarHeight : e.clientY - rect.top;
     const sunRadius = getSunRadius();
-
-    // checkPlanetClick(mouseX, mouseY);
-    // checkSunClick(mouseX, mouseY, sunRadius);
 
     if (isClickOnSun(mouseX, mouseY, sunRadius)) {
         showModal(sun.name, sun.description);
@@ -298,9 +255,6 @@ const updateZoomButtons = () => {
 
 }
 
-// set a event listener on the planets
-// canvas.addEventListener('click', planetClick);
-// canvas.addEventListener('click', sunClick);
 
 // show the modal 
 const showModal = (titleText, bodyText) => {
