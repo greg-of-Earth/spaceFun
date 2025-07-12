@@ -3,11 +3,10 @@ import { loadQuestions, questions, renderQuiz, timerDisplayReset, stopQuiz, upda
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 import { auth } from './firebase-init.js';
 import { logOut } from "./auth.js";
+import { getTopThree } from "./leaderboard.js";
 
 
 
-
-// const statusDisplay = document.getElementById('statusDisplay');
 const timerDisplay = document.getElementById('timerDisplay');
 const scorecard = document.getElementById('scoreDisplay');
 
@@ -43,22 +42,20 @@ document.querySelectorAll('.console-btn').forEach(btn => {
             case 'LogIn':
                 console.log('trying to log in. status is currently: ')
                 document.getElementById('authModal').classList.remove('hidden');
-                // btn.setAttribute('data-content', 'LogOut');
-                // btn.textContent = 'Log Out';
-                
                 break;
             // tryin to logout
             case 'LogOut':
                 console.log('trying to log out. status is currently: ')
                 logOut();
-                // btn.setAttribute('data-content', 'LogIn');
-                // btn.textContent = 'Log In';
                 break;
             case 'missionStart':
                 restartGame(screen);
                 break;
             case 'logs': 
                 screen.innerHTML = `<h2>Loading Leaderboard...</h2>`;
+                setTimeout(() => {
+                    displayLeaders(screen);
+                }, 1500);
                 logsBtn.classList.add('disabled');
                 exitBtn.classList.remove('disabled');
                 break;
@@ -98,7 +95,6 @@ const loadGame = async (screen) => {
         timerDisplay.appendChild(timerPara);
     }
 
-    // statusDisplay.innerHTML = 'Engines Engaged';
 }
 
 
@@ -112,8 +108,6 @@ const restartGame = (screen) => {
     startBtn.classList.add('disabled');
     logsBtn.classList.add('disabled');
     restartBtn.classList.add('disabled');
-
-    // statusDisplay.innerHTML = 'Engines Idle';
 
     const countdown = document.createElement('p');
     countdown.id = 'countdown';
@@ -141,7 +135,6 @@ const restartGame = (screen) => {
         renderQuiz(questions);
         restartBtn.classList.remove('disabled');
         exitBtn.classList.remove('disabled');
-        // statusDisplay.innerHTML = 'Engines Engaged';
     }, 6000)
 }
 
@@ -161,5 +154,31 @@ const resetHomeScreen = (screen) => {
     timerDisplayReset();
     scorecard.textContent = "Score: 0";
     updateHealth(3);
-    // statusDisplay.innerHTML = 'Engines Idle';
+}
+
+const displayLeaders = async (screen) => {
+    screen.innerHTML = '';
+    const leaders = await getTopThree();
+    if (leaders.length === 0) {
+        screen.innerHTML = `<h2>No Scores Available</h2>`;
+        return;
+    }
+
+    screen.innerHTML = `<h2>Galactic Leaders</h2>`;
+    const list = document.createElement('ol');
+    leaders.forEach(leader => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML =
+        `<div style="display: flex; justify-content: space-between; padding-bottom: 5px;">
+            <span>${leader.email}</span>
+            <span style="font-weight: bold;">${leader.score}</span>
+        </div>`;
+
+        list.appendChild(listItem);
+    });
+
+    list.style.width = '80%';
+   
+
+    screen.appendChild(list);
 }
