@@ -6,28 +6,33 @@ import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.10.0/
 const saveHighScore = async (score) => {
     const user = auth.currentUser;
     console.log('user is: ', user);
+    let userEmail;
+    let userRef;
 
     if (!user) {
-        console.warn("no user signed in, not saving");
-        return;
+        console.warn("no user signed in, saving to guest");
+        userRef = doc(db, "users", "guest");
+        userEmail = "guest@funspacefacts";
+    } else {
+        userRef = doc(db, "users", user.uid)
+        userEmail = user.email;
     }
 
     try {
-        const userRef = doc(db, "users", user.uid)
         const userSnap = await getDoc(userRef);
 
         // update if new high score
         const existingHighScore = userSnap.exists() ? userSnap.data().highScore || 0 : 0;
 
         if (score > existingHighScore || !userSnap.exists() || !userSnap.data.email) {
-            await setDoc(userRef, { highScore: score, email: user.email }, { merge: true });
+            await setDoc(userRef, { highScore: score, email: userEmail }, { merge: true });
             const screen = document.getElementById('screen');
             screen.innerHTML = '';
             const highScore = document.createElement('h1');
             highScore.innerHTML = `New Personal Record!<br><br> Score: ${score}`;
             highScore.style = "color: lime";
             screen.appendChild(highScore);
-            console.log(`high score updated to ${score}`);
+            console.log(`high score updated to ${score} for ${userEmail}`);
         } else {
             console.log('not a new high score');
         }

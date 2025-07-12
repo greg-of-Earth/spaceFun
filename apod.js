@@ -29,7 +29,7 @@ const loadAPOD = async () => {
         }
         // good respose so load up data
         data = await response.json();
-        console.log('apod data:', data);
+        console.log('new apod data:', data);
 
         localStorage.setItem('apodData', JSON.stringify(data));
         
