@@ -1,7 +1,7 @@
 #satellite-sim {
     color: #00ffcc;
     background-color: #000;
-    padding: 2rem;
+    padding: 1.75rem;
     top: 50px;
     position: relative;
     font-family: 'Courier New', Courier, monospace;
@@ -51,6 +51,6 @@
 #telemetryLog {
     list-style: none;
     padding: 0;
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
 }
