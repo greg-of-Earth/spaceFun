@@ -1,5 +1,7 @@
 "use strict";
 
+import { initSim } from "./simulator.js";
+
 const render = () => {
     const hash = window.location.hash;
     const hideModal = () => {
@@ -8,7 +10,7 @@ const render = () => {
     }
 
     // hide page
-    const sections = ['solarSystem-container', 'about-section', 'apod-section', 'trivia-section', 'spaceship-container'];
+    const sections = ['solarSystem-container', 'satellite-sim', 'apod-section', 'trivia-section', 'spaceship-container'];
     sections.forEach(id => hideSection(id));
 
     hideModal();
@@ -16,8 +18,9 @@ const render = () => {
     // check which page to render
     if (hash === '#home' || hash === '' || hash === '#') {
         showSection('solarSystem-container');
-    } else if (hash === '#about') {
-        showSection('about-section');
+    } else if (hash === '#satellite-sim') {
+        showSection('satellite-sim');
+        initSim();
     } else if (hash === '#apod') {   
         showSection('apod-section');
         console.log('calling apod');

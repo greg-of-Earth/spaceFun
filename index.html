@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="styles/solarSystem.css"/>
     <link rel="stylesheet" href="styles/modal.css"/>
     <link rel="stylesheet" href="styles/auth.css"/>
+    <link rel="stylesheet" href="styles/simulator.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-    
+  
 </head>
 
 <body>
@@ -29,8 +30,8 @@
                 <ul id="header-items">
                     <li><a href="#home">Home</a></li>
                     <li>
-                        <a href="#about">About</a>
-                        <ul class="dropdown">
+                        <a href="#satellite-sim">Simulator</a>
+                        <!-- <ul class="dropdown">
                             <li><a href="#mercury">Mercury</a></li>
                             <li><a href="#mercury">Venus</a></li>
                             <li><a href="#mercury">Earth</a></li>
@@ -39,7 +40,7 @@
                             <li><a href="#mercury">Saturn</a></li>
                             <li><a href="#mercury">Uranus</a></li>
                             <li><a href="#mercury">Neptune</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li><a href="#apod">APOD</a></li>
                     <li><a href="#games">Games</a></li>
@@ -66,11 +67,48 @@
                 
             </div>
 
-            <!-- About page -->
+            <!-- Satellite simulator -->
+            <div id="satellite-sim" class="hidden">
+                <h1>Command Center</h1>
+                <section id="telemetry-display">
+                    <div id="satelliteDisplay-container">
+                        <canvas id="satelliteCanvas"></canvas>
+                    </div>
+                    
+                    <div id="telemetryGraph-container">
+                        <div class="sensorOutput-group">
+                            <canvas id="tempGraph"></canvas>
+                        </div>
+                        <div class="sensorOutput-group">
+                            <canvas id="altitudeGraph"></canvas>
+                        </div>
+                        <div class="sensorOutput-group">
+                            <canvas id="radiationGraph"></canvas>
+                        </div>
+                        <div class="sensorOutput-group">
+                            <canvas id="batteryGraph"></canvas>
+                        </div>
+                    </div>
+
+                    <div id="telemetryControls-container">
+                        <h3>Control Panel</h3>
+                        <button id="radiationToggle">Radiation</button>
+                        <button id="radiationToggle">Signal Loss</button>
+                    </div>
+                </section>
+
+                <section id="telemetryLog">
+                    <h3>Log</h3>
+                    <ul id="logOutput"></ul>
+                </section>
+            </div>
+
+
+            <!-- About page
             <div id="about-section" class="hidden">
                 <h1 id="about-title">About Solar System</h1>
                 <p id="about-description">Facts about Solar System</p>
-            </div>
+            </div> -->
 
             <!-- Astronomy Picture of the Day page -->
             <div id="apod-section" class="hidden">
@@ -152,8 +190,11 @@
 <script type="module" src="gamePage.js"></script>
 <script type="module" src="firebase-init.js"></script>
 <script type="module" src="auth.js"></script>
-<!-- <script type="module" src="scoreDatabase.js"></script> -->
 <script type="module" src="trivia.js"></script>
-<script src="render.js"></script>
+<script type="module" src="render.js"></script>
+
+<script type="module" src="./simulator.js"></script>
+
+
 
 </html>
