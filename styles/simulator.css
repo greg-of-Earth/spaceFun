@@ -6,7 +6,7 @@
     position: relative;
     font-family: 'Courier New', Courier, monospace;
     height: 100dvh;
-   
+    overflow-y: auto;
 }
 
 #telemetry-display {

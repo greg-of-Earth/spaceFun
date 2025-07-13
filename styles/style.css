@@ -86,8 +86,16 @@ main {
 
 body {
     background-color: black;
+    
+}
+
+body.no-scroll {
     overflow: hidden;
 }
+
+/* body.satellite-scroll {
+    overflow-y: auto;
+} */
 
 
 .hidden {
