@@ -1,7 +1,9 @@
 #satellite-sim {
     color: #00ffcc;
     background-color: #000;
-    /* padding: 1.75rem; */
+    padding: 1.75rem;
+    /* padding-left: 10px;
+    padding-right: 10px; */
     padding-top: 50px;
     position: relative;
     font-family: 'Courier New', Courier, monospace;
