@@ -74,7 +74,7 @@
     color: #00ffcc;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
-    text-align: center;
+    text-align: center; 
   }
 
 .simToggle {
@@ -91,18 +91,22 @@
   }
   
 .simToggle:hover {
-background-color: #001f1a;
-transform: scale(1.03);
+    background-color: #001f1a;
+    transform: scale(1.03);
 }
 
 .simToggle:active {
-background-color: #003830;
+    background-color: #003830;
 }
 
 .simToggleGroup {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+#logHeader {
+    margin-bottom: 0;
 }
 
 @media (max-width: 468px) {
