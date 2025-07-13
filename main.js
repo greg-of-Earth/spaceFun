@@ -142,7 +142,7 @@ const animate = () => {
     // smooth zoom
     zoomFactor += (targetZoom - zoomFactor) * 0.1;
 
-    context.fillStyle = 'rgba(0, 0, 0, 0.07)'; // orbit trail
+    context.fillStyle = 'rgba(0, 0, 0, 0.2)'; // orbit trail time to fade
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     // context.clearRect(0, 0, canvas.width, canvas.height);
