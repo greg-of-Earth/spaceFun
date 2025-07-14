@@ -1,7 +1,5 @@
 "use strict"
 
-// import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/+esm';
-
 import {
     Chart,
     LineController,
@@ -118,6 +116,13 @@ const telemLog = (msg) => {
 export const initSim = () => {
     if (telemInterval) clearInterval(telemInterval);
 
+    // cleanup old
+    Object.values(charts).forEach(chart => {
+        if (chart && chart.destroy) {
+            chart.destroy();
+        }
+    });
+
     charts = {
         temps: createChart('tempGraph', 'Temperature (°C)', 'orange'),
         alts: createChart('altitudeGraph', 'Altitude (km)', 'skyblue'),
@@ -141,3 +146,21 @@ export const initSim = () => {
         telemLog(`Temp: ${newTemp.toFixed(1)} °C, Alt: ${newAlt.toFixed(1)} km, Rad: ${newRad.toFixed(1)} mSv, Batt: ${newBtry.toFixed(0)}%`)
     }, 1000);
 }
+
+export const clearOldCharts = (charts) => {
+    Object.values(charts).forEach(chart => {
+        if (chart && chart.destroy) {
+            chart.destroy();
+        }
+    });
+    charts = {};
+}
+
+export const stopSim = () => {
+    if (telemInterval) {
+        clearInterval(telemInterval);
+        telemInterval = null;
+    }
+};
+
+export const isSimRunning = () => !!telemInterval;
