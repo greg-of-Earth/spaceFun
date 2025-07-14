@@ -4,19 +4,31 @@ let data = null
 
 // fetch apod
 const loadAPOD = async () => {
-    const cached = localStorage.getItem('apodData');
-    if (cached) {
-        const parsed = JSON.parse(cached);
-        
-
-        if (parsed.date === new Date().toISOString().split('T')[0]) {
-            data = parsed;
-            console.log('cache data:', data);
+    const cachedRaw = localStorage.getItem('apodData');
+    if (cachedRaw){
+        const cached = JSON.parse(cachedRaw);
+        if (cached && cached.timestamp && (Date.now() - cached.timestamp < 24 * 60 * 60 * 1000)) {
+            data = cached.data;
             updateAPODDisplay(data);
-            return data;
+            console.log('cached', data);
+            return;
+            // const parsed = JSON.parse(cached);
+            // console.log('Parsed cached APOD:', parsed);
+            // console.log('Today:', new Date().toISOString().split('T')[0]);
+    
+    
+            // if (parsed.date === new Date().toISOString().split('T')[0]) {
+            //     data = parsed;
+            //     console.log('cache data:', data);
+            //     updateAPODDisplay(data);
+            //     return data;
+            // }
+            
+        } else {
+            console.log('nothing cached')
         }
-        
     }
+    
    
     try {
         const apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=ruxyHCL7MmGlY7hBL7JyQYgaCHCtEFmVxqouMHaD';
@@ -31,7 +43,7 @@ const loadAPOD = async () => {
         data = await response.json();
         console.log('new apod data:', data);
 
-        localStorage.setItem('apodData', JSON.stringify(data));
+        localStorage.setItem('apodData', JSON.stringify({timestamp: Date.now(), data}));
         
         // render image and info
         updateAPODDisplay(data);
