@@ -63,5 +63,85 @@
             "Navigation and Space Authority"
         ],
         "answer": "National Aeronautics and Space Administration"
+    },
+    {
+        "question": "Which planet has the fastest rotation in the Solar System?",
+        "options": ["Saturn", "Jupiter", "Neptune", "Earth"],
+        "answer": "Jupiter"
+    },
+    {
+        "question": "What is the name of the region beyond Neptune that contains many icy bodies?",
+        "options": ["Asteroid Belt", "Oort Cloud", "Kuiper Belt", "Orion Arm"],
+        "answer": "Kuiper Belt"
+    },
+    {
+        "question": "Which moon is believed to have a subsurface ocean and is a candidate for life?",
+        "options": ["Io", "Europa", "Phobos", "Titania"],
+        "answer": "Europa"
+    },
+    {
+        "question": "Which element primarily fuels the Sun’s nuclear fusion?",
+        "options": ["Helium", "Hydrogen", "Oxygen", "Carbon"],
+        "answer": "Hydrogen"
+    },
+    {
+        "question": "What is the term for a star that suddenly increases greatly in brightness and then fades?",
+        "options": ["Quasar", "Nova", "Pulsar", "Red Giant"],
+        "answer": "Nova"
+    },
+    {
+        "question": "Which Apollo mission was the first to orbit but not land on the Moon?",
+        "options": ["Apollo 8", "Apollo 10", "Apollo 11", "Apollo 12"],
+        "answer": "Apollo 8"
+    },
+    {
+        "question": "What type of galaxy is the Milky Way classified as?",
+        "options": ["Elliptical", "Irregular", "Barred Spiral", "Lenticular"],
+        "answer": "Barred Spiral"
+    },
+    {
+        "question": "Which space telescope provided the first direct image of an exoplanet?",
+        "options": ["Kepler", "Spitzer", "James Webb", "Hubble"],
+        "answer": "Hubble"
+    },
+    {
+        "question": "What phenomenon causes time to pass more slowly near a massive object?",
+        "options": ["Dark Energy", "Time Dilation", "Gravitational Lensing", "Redshift"],
+        "answer": "Time Dilation"
+    },
+    {
+        "question": "Which mission successfully landed the first rover on Mars?",
+        "options": ["Viking 1", "Pathfinder", "Opportunity", "Curiosity"],
+        "answer": "Pathfinder"
+    },
+    {
+        "question": "What is the term for the theoretical boundary around a black hole beyond which nothing can escape?",
+        "options": ["Accretion Disk", "Event Horizon", "Singularity", "Photon Sphere"],
+        "answer": "Event Horizon"
+    },
+    {
+        "question": "Which physicist proposed the general theory of relativity?",
+        "options": ["Isaac Newton", "Stephen Hawking", "Albert Einstein", "Niels Bohr"],
+        "answer": "Albert Einstein"
+    },
+    {
+        "question": "What is the primary cause of Earth's magnetic field?",
+        "options": ["Solar Wind", "Earth’s Rotation", "Molten Iron Core", "Tectonic Activity"],
+        "answer": "Molten Iron Core"
+    },
+    {
+        "question": "Which cosmic event is responsible for creating elements heavier than iron?",
+        "options": ["Supernova", "Big Bang", "Solar Flare", "Black Hole Formation"],
+        "answer": "Supernova"
+    },
+    {
+        "question": "Which law describes the relationship between the distance of galaxies and their recessional velocity?",
+        "options": ["Newton's First Law", "Kepler's Third Law", "Hubble's Law", "Planck's Law"],
+        "answer": "Hubble's Law"
+    },
+    {
+        "question": "Which spacecraft performed the first successful flyby of Pluto in 2015?",
+        "options": ["Voyager 2", "New Horizons", "Pioneer 11", "Cassini"],
+        "answer": "New Horizons"
     }
 ]
