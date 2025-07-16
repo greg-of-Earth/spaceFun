@@ -12,6 +12,8 @@ const loadAPOD = async () => {
             updateAPODDisplay(data);
             console.log('cached', data);
             console.log('cached date: ', cached.timestamp)
+            console.log('date now: ', Date.now())
+            console.log('Age (min):', (Date.now() - cached.timestamp) / (1000 * 60));
             return;
             // const parsed = JSON.parse(cached);
             // console.log('Parsed cached APOD:', parsed);
