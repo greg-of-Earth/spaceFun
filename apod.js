@@ -7,7 +7,7 @@ const loadAPOD = async () => {
     const cachedRaw = localStorage.getItem('apodData');
     if (cachedRaw){
         const cached = JSON.parse(cachedRaw);
-        if (cached && cached.timestamp && (Date.now() - cached.timestamp < 24 * 60 * 60 * 1000)) {
+        if (cached && cached.timestamp && (Date.now() - cached.timestamp < 10 * 60 * 60 * 1000)) {
             data = cached.data;
             updateAPODDisplay(data);
             console.log('cached', data);
@@ -46,6 +46,7 @@ const loadAPOD = async () => {
         data = await response.json();
         console.log('new apod data:', data);
 
+        localStorage.clear()
         localStorage.setItem('apodData', JSON.stringify({timestamp: Date.now(), data}));
         
         // render image and info
