@@ -11,6 +11,7 @@ const loadAPOD = async () => {
             data = cached.data;
             updateAPODDisplay(data);
             console.log('cached', data);
+            console.log('cached date: ', cached.timestamp)
             return;
             // const parsed = JSON.parse(cached);
             // console.log('Parsed cached APOD:', parsed);

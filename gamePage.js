@@ -1,7 +1,7 @@
 "use strict";
 import { loadQuestions, questions, renderQuiz, timerDisplayReset, stopQuiz, updateHealth } from "./trivia.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-import { auth } from './firebase-init.js';
+import { auth } from "./firebase-init.js";
 import { logOut } from "./auth.js";
 import { getTopThree } from "./leaderboard.js";
 
